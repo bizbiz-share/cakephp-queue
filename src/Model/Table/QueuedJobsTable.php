@@ -366,7 +366,7 @@ class QueuedJobsTable extends Table {
 		$driverName = $this->_getDriverName();
 
 		$query = $this->find();
-		$age = $query->newExpr()->add('IFNULL(TIMESTAMPDIFF(SECOND, "' . $nowStr . '", notbefore), 0)');
+		$age = $query->newExpr()->add('IFNULL(TIMESTAMPDIFF(SECOND, \'' . $nowStr . '\', notbefore), 0)');
 		switch ($driverName) {
 			case static::DRIVER_SQLSERVER:
 				$age = $query->newExpr()->add('ISNULL(DATEDIFF(SECOND, GETDATE(), notbefore), 0)');

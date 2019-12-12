@@ -163,7 +163,7 @@ TEXT;
 			$queuedJob = $this->QueuedJobs->requestJob($this->_getTaskConf(), $groups, $types);
 
 			if ($queuedJob) {
-				$this->out('Running Job of type "' . $queuedJob->job_type . '"');
+				$this->out('Running Job of type \'' . $queuedJob->job_type . '\'');
 				$this->_log('job ' . $queuedJob->job_type . ', id ' . $queuedJob->id, $pid, false);
 				$taskName = 'Queue' . $queuedJob->job_type;
 
